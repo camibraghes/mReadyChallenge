@@ -1,27 +1,14 @@
 //
-//  RepositoriesLoader.swift
+//  NetworkClient.swift
 //  mReadyChallenge
 //
 //  Created by Camelia Braghes on 17.06.2022.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-// Defining our own `Error`s to be handled later as we wish
-enum GitHubError: Error {
-    case badUrl
-    case badServerResponse
-    case decodingFailure
-}
-
-// A loader responsible for loading the public GitHub repositories using the GitHub API
-final class RepositoriesLoader {
-    
-    // For a simpler code reading
-    typealias RepositoriesResult = Result<[Repository], Error>
-    
-    private let repositoriesURLString = "https://api.github.com/repositories"
+final class NetworkClient {
     private var cancellable = Set<AnyCancellable>()
     
     // Decoder used to decode JSONs with snake case properties
@@ -31,18 +18,16 @@ final class RepositoriesLoader {
         return decoder
     }
     
-    /// Gets the public GitHub repositories.
-    /// - Parameter completion: The result of the get request, verified and decoded.
-    func getRepositories(completion: @escaping (RepositoriesResult) -> Void) {
-        guard let url = URL(string: repositoriesURLString) else {
-            completion(Result.failure(GitHubError.badUrl))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        // Header is required per GitHub documentation
-        request.addValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
-        
+    /// Performs a GET request and completes with a generic Result.
+    /// - Parameters:
+    ///   - response: The expected data type in the response.
+    ///   - request: The URLRequest to be executed.
+    ///   - completion: The result of the get request, verified and decoded.
+    func get<Response: Decodable>(
+        _ response: Response.Type,
+        for request: URLRequest,
+        completion: @escaping (Result<Response, GitHubError>
+        ) -> Void) {
         // Start a task that makes the given request
         URLSession.shared.dataTaskPublisher(for: request)
             // Dispatches the result and future work to the main queue
@@ -55,19 +40,19 @@ final class RepositoriesLoader {
                 
                 return data
             }
-            // Decodes the received `Data` to the expected type ([Repository]) using the decoder above
-            .decode(type: [Repository].self, decoder: self.decoder)
-            // Calls the completion when the task has finished, using failure if the decoding above failed
-            // or success with the resulted repositories if everything went right
+            // Decodes the received `Data` to the expected type using the decoder above
+            .decode(type: response, decoder: self.decoder)
+            // Calls the completion when the task has finished, using failure if the decoding above failed or success if everything went right
             .sink(receiveCompletion: { result in
                 switch result {
                 case .finished:
                     break
                 case .failure:
                     completion(Result.failure(GitHubError.decodingFailure))
+                    break
                 }
-            }, receiveValue: { repositories in
-                completion(Result.success(repositories))
+            }, receiveValue: { value in
+                completion(Result.success(value))
             })
             // Stores the task to a cancellable set
             .store(in: &cancellable)

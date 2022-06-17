@@ -14,6 +14,8 @@
 		991E9944285CD4FB001ADFB9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9943285CD4FB001ADFB9 /* Repository.swift */; };
 		991E9948285CD5C2001ADFB9 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9947285CD5C2001ADFB9 /* GitHubUser.swift */; };
 		991E994A285CD914001ADFB9 /* RepositoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9949285CD914001ADFB9 /* RepositoriesLoader.swift */; };
+		991E994D285CF3B1001ADFB9 /* RepositoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E994C285CF3B1001ADFB9 /* RepositoryDetails.swift */; };
+		991E994F285D0038001ADFB9 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E994E285D0038001ADFB9 /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		991E9943285CD4FB001ADFB9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		991E9947285CD5C2001ADFB9 /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 		991E9949285CD914001ADFB9 /* RepositoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesLoader.swift; sourceTree = "<group>"; };
+		991E994C285CF3B1001ADFB9 /* RepositoryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetails.swift; sourceTree = "<group>"; };
+		991E994E285D0038001ADFB9 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,7 @@
 				991E9934285CD39A001ADFB9 /* ContentView.swift */,
 				991E9932285CD39A001ADFB9 /* mReadyChallengeApp.swift */,
 				991E9936285CD39B001ADFB9 /* Assets.xcassets */,
-				991E994B285CF209001ADFB9 /* Loaders */,
+				991E994B285CF209001ADFB9 /* Services */,
 				991E9940285CD48E001ADFB9 /* Model */,
 				991E9938285CD39B001ADFB9 /* Preview Content */,
 			);
@@ -78,18 +82,20 @@
 		991E9940285CD48E001ADFB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				991E9943285CD4FB001ADFB9 /* Repository.swift */,
 				991E9947285CD5C2001ADFB9 /* GitHubUser.swift */,
+				991E9943285CD4FB001ADFB9 /* Repository.swift */,
+				991E994C285CF3B1001ADFB9 /* RepositoryDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		991E994B285CF209001ADFB9 /* Loaders */ = {
+		991E994B285CF209001ADFB9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				991E9949285CD914001ADFB9 /* RepositoriesLoader.swift */,
+				991E994E285D0038001ADFB9 /* NetworkClient.swift */,
 			);
-			path = Loaders;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +170,9 @@
 			files = (
 				991E9935285CD39A001ADFB9 /* ContentView.swift in Sources */,
 				991E9948285CD5C2001ADFB9 /* GitHubUser.swift in Sources */,
+				991E994D285CF3B1001ADFB9 /* RepositoryDetails.swift in Sources */,
 				991E994A285CD914001ADFB9 /* RepositoriesLoader.swift in Sources */,
+				991E994F285D0038001ADFB9 /* NetworkClient.swift in Sources */,
 				991E9933285CD39A001ADFB9 /* mReadyChallengeApp.swift in Sources */,
 				991E9944285CD4FB001ADFB9 /* Repository.swift in Sources */,
 			);
