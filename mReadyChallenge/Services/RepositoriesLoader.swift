@@ -23,6 +23,7 @@ final class RepositoriesLoader {
     // For a simpler code reading
     typealias RepositoriesResult = Result<[Repository], GitHubError>
     typealias RepositoryResult = Result<RepositoryDetails, GitHubError>
+    typealias RepositoryReadMeResult = Result<RepositoryReadMe, GitHubError>
 
     /// Gets the public GitHub repositories.
     /// - Parameter completion: The result of the get request, verified and decoded.
@@ -47,6 +48,20 @@ final class RepositoriesLoader {
         
         let request = createURLRequest(for: url)
         networkClient.get(RepositoryDetails.self, for: request, completion: completion)
+    }
+    
+    /// Gets the ReadMe for a given GitHub repository.
+    /// - Parameters:
+    ///   - url: The URL String of the GitHub repo to be fetched.
+    ///   - completion: The result of the get request, verified and decoded.
+    func getRepositoryReadMe(from url: String, completion: @escaping (RepositoryReadMeResult) -> Void ) {
+        guard let url = URL(string: String (url + "/readme")) else {
+            completion(Result.failure(GitHubError.badUrl))
+            return
+        }
+        
+        let request = createURLRequest(for: url)
+        networkClient.get(RepositoryReadMe.self, for: request, completion: completion)
     }
     
     private func createURLRequest(for url: URL) -> URLRequest {

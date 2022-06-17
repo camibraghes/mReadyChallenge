@@ -16,6 +16,7 @@
 		991E994A285CD914001ADFB9 /* RepositoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9949285CD914001ADFB9 /* RepositoriesLoader.swift */; };
 		991E994D285CF3B1001ADFB9 /* RepositoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E994C285CF3B1001ADFB9 /* RepositoryDetails.swift */; };
 		991E994F285D0038001ADFB9 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E994E285D0038001ADFB9 /* NetworkClient.swift */; };
+		991E9951285D03CB001ADFB9 /* RepositoryReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9950285D03CB001ADFB9 /* RepositoryReadMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		991E9949285CD914001ADFB9 /* RepositoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesLoader.swift; sourceTree = "<group>"; };
 		991E994C285CF3B1001ADFB9 /* RepositoryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetails.swift; sourceTree = "<group>"; };
 		991E994E285D0038001ADFB9 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		991E9950285D03CB001ADFB9 /* RepositoryReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadMe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				991E9947285CD5C2001ADFB9 /* GitHubUser.swift */,
 				991E9943285CD4FB001ADFB9 /* Repository.swift */,
 				991E994C285CF3B1001ADFB9 /* RepositoryDetails.swift */,
+				991E9950285D03CB001ADFB9 /* RepositoryReadMe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				991E994F285D0038001ADFB9 /* NetworkClient.swift in Sources */,
 				991E9933285CD39A001ADFB9 /* mReadyChallengeApp.swift in Sources */,
 				991E9944285CD4FB001ADFB9 /* Repository.swift in Sources */,
+				991E9951285D03CB001ADFB9 /* RepositoryReadMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
