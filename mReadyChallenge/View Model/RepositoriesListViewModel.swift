@@ -19,7 +19,7 @@ struct RepositoryDisplayData: Identifiable {
 }
 
 final class RepositoriesListViewModel: ObservableObject {
-    private let loader: RepositoriesLoader
+    let loader: RepositoriesLoader
     
     @Published var repositories: [RepositoryDisplayData] = []
     

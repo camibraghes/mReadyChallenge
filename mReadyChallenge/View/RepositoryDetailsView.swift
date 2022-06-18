@@ -75,6 +75,6 @@ struct RepositoryDetailsView: View {
 
 struct RepositoryDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoryDetailsView(viewModel: RepositoryDetailsViewModel(repositoryData: RepositoryDisplayData(id: 1, author: "@Cami", name: "MyAwesomeRepo", url: URL(string: "https://github.com/camibraghes/SwiftUIProgress")!, stars: 230, forks: 3, watchers: 82, description: "This is the description of a hardcoded repo")))
+        RepositoryDetailsView(viewModel: RepositoryDetailsViewModel(loader: RepositoriesLoader(), repositoryData: RepositoryDisplayData(id: 1, author: "@Cami", name: "MyAwesomeRepo", url: URL(string: "https://github.com/camibraghes/SwiftUIProgress")!, stars: 230, forks: 3, watchers: 82, description: "This is the description of a hardcoded repo")))
     }
 }

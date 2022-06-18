@@ -19,7 +19,7 @@ struct RepositoriesList: View {
             List {
                 ForEach(viewModel.repositories) { repository in
                     NavigationLink {
-                        RepositoryDetailsView(viewModel: RepositoryDetailsViewModel(repositoryData: repository))
+                        RepositoryDetailsView(viewModel: RepositoryDetailsViewModel(loader: viewModel.loader, repositoryData: repository))
                     } label: {
                         RepositoryView(repository: repository)
                     }

@@ -8,11 +8,19 @@
 import Foundation
 
 final class RepositoryDetailsViewModel: ObservableObject  {
+    private let loader: RepositoriesLoader
     
     @Published var readMeContent: String?
     var repositoryData: RepositoryDisplayData
     
-    init(repositoryData: RepositoryDisplayData) {
+    init(loader: RepositoriesLoader, repositoryData: RepositoryDisplayData) {
+        self.loader = loader
         self.repositoryData = repositoryData
+        
+        getReadMe()
+    }
+    
+    private func getReadMe() {
+        
     }
 }
