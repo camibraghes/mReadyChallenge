@@ -9,7 +9,7 @@ import Foundation
 
 final class RepositoryDetailsViewModel: ObservableObject  {
     private let loader: RepositoriesLoader
-    
+
     @Published var readMeContent: String?
     var repositoryData: RepositoryDisplayData
     
@@ -21,6 +21,13 @@ final class RepositoryDetailsViewModel: ObservableObject  {
     }
     
     private func getReadMe() {
-        
+        loader.getRepositoryReadMe(from: repositoryData.url) { [weak self] result in
+            switch result {
+            case .success(let readMe):
+                self?.readMeContent = readMe.decodedContent
+            case .failure:
+                break
+            }
+        }
     }
 }
