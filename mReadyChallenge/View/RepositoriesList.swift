@@ -12,7 +12,7 @@ struct RepositoriesList: View {
         static let verticalPadding = 16.0
     }
     
-    var viewModel: RepositoriesListViewModel
+    @ObservedObject var viewModel: RepositoriesListViewModel
     
     var body: some View {
         NavigationView {

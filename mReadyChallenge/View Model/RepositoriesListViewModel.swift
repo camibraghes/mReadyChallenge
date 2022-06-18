@@ -18,10 +18,10 @@ struct RepositoryDisplayData: Identifiable {
     let description: String?
 }
 
-class RepositoriesListViewModel {
+final class RepositoriesListViewModel: ObservableObject {
     private let loader: RepositoriesLoader
     
-    var repositories: [RepositoryDisplayData]
+    @Published var repositories: [RepositoryDisplayData] = []
     
     init(loader: RepositoriesLoader) {
         self.loader = loader
