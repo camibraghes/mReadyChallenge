@@ -41,6 +41,6 @@ struct RepositoryView: View {
 
 struct RepositoryView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoryView(repository: RepositoryDisplayData(id: 1, author: "Cami", name: "MyAwesomeRepo", stars: 123))
+        RepositoryView(repository: RepositoryDisplayData(id: 1, author: "Cami", name: "MyAwesomeRepo", url: URL(string: "some-url")!, stars: 123, forks: 3, watchers: 82, description: "This is the description of a hardcoded repo"))
     }
 }

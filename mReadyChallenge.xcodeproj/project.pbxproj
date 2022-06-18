@@ -19,6 +19,8 @@
 		991E9951285D03CB001ADFB9 /* RepositoryReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9950285D03CB001ADFB9 /* RepositoryReadMe.swift */; };
 		991E9954285DD314001ADFB9 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9953285DD313001ADFB9 /* RepositoryView.swift */; };
 		991E9956285DE615001ADFB9 /* RepositoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9955285DE615001ADFB9 /* RepositoryDetailsView.swift */; };
+		991E9959285DFA8B001ADFB9 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E9958285DFA8B001ADFB9 /* RepositoriesListViewModel.swift */; };
+		991E995B285DFBD5001ADFB9 /* RepositoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E995A285DFBD5001ADFB9 /* RepositoryDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		991E9950285D03CB001ADFB9 /* RepositoryReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadMe.swift; sourceTree = "<group>"; };
 		991E9953285DD313001ADFB9 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 		991E9955285DE615001ADFB9 /* RepositoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsView.swift; sourceTree = "<group>"; };
+		991E9958285DFA8B001ADFB9 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
+		991E995A285DFBD5001ADFB9 /* RepositoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 				991E9938285CD39B001ADFB9 /* Preview Content */,
 				991E994B285CF209001ADFB9 /* Services */,
 				991E9952285DC7DE001ADFB9 /* View */,
+				991E9957285DFA6A001ADFB9 /* View Model */,
 			);
 			path = mReadyChallenge;
 			sourceTree = "<group>";
@@ -113,6 +118,15 @@
 				991E9953285DD313001ADFB9 /* RepositoryView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		991E9957285DFA6A001ADFB9 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				991E9958285DFA8B001ADFB9 /* RepositoriesListViewModel.swift */,
+				991E995A285DFBD5001ADFB9 /* RepositoryDetailsViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +204,8 @@
 				991E994D285CF3B1001ADFB9 /* RepositoryDetails.swift in Sources */,
 				991E994A285CD914001ADFB9 /* RepositoriesLoader.swift in Sources */,
 				991E994F285D0038001ADFB9 /* NetworkClient.swift in Sources */,
+				991E9959285DFA8B001ADFB9 /* RepositoriesListViewModel.swift in Sources */,
+				991E995B285DFBD5001ADFB9 /* RepositoryDetailsViewModel.swift in Sources */,
 				991E9954285DD314001ADFB9 /* RepositoryView.swift in Sources */,
 				991E9956285DE615001ADFB9 /* RepositoryDetailsView.swift in Sources */,
 				991E9933285CD39A001ADFB9 /* mReadyChallengeApp.swift in Sources */,
