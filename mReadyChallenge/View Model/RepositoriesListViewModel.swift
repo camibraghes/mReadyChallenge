@@ -11,7 +11,8 @@ struct RepositoryDisplayData: Identifiable {
     let id: Int
     let author: String
     let name: String
-    let url: URL
+    let url: String
+    let htmlUrl: URL
     let stars: Int
     let forks: Int
     let watchers: Int
@@ -50,7 +51,8 @@ final class RepositoriesListViewModel: ObservableObject {
                     id: repositoryDetails.id,
                     author: repositoryDetails.owner.login,
                     name: repositoryDetails.name,
-                    url: URL(string: repositoryDetails.htmlUrl)!,
+                    url: repo.url,
+                    htmlUrl: URL(string: repositoryDetails.htmlUrl)!,
                     stars: repositoryDetails.stargazersCount,
                     forks: repositoryDetails.forks,
                     watchers: repositoryDetails.watchers,
