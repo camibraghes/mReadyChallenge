@@ -10,6 +10,7 @@ import SwiftUI
 struct RepositoryView: View {
     private enum Layout {
         static let verticalSpacing = 8.0
+        static let verticalPadding = 4.0
         static let starsPadding = 2.0
     }
     
@@ -23,7 +24,7 @@ struct RepositoryView: View {
                 Text(repository.author)
                     .font(.subheadline)
             }
-            
+                
             Spacer()
             
             VStack(alignment: .trailing) {
@@ -34,6 +35,7 @@ struct RepositoryView: View {
                     .padding(Layout.starsPadding)
             }
         }
+        .padding(.vertical, Layout.verticalPadding)
     }
 }
 

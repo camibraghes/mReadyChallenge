@@ -109,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				991E9934285CD39A001ADFB9 /* RepositoriesList.swift */,
-				991E9953285DD313001ADFB9 /* RepositoryView.swift */,
 				991E9955285DE615001ADFB9 /* RepositoryDetailsView.swift */,
+				991E9953285DD313001ADFB9 /* RepositoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
