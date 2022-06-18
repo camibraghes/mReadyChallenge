@@ -11,6 +11,7 @@ struct RepositoryDetailsDisplayData: Identifiable {
     let id: Int
     let author: String
     let name: String
+    let url: URL
     let stars: Int
     let forks: Int
     let watchers: Int
@@ -27,7 +28,7 @@ struct RepositoryDetailsView: View {
         static let scrollItemsSpacing = 32.0
     }
     
-    var readMeDetail: RepositoryDetailsDisplayData
+    var repositoryDetails: RepositoryDetailsDisplayData
     
     var body: some View {
         VStack {
@@ -36,10 +37,10 @@ struct RepositoryDetailsView: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: Layout.scrollItemsSpacing) {
-                    Text(readMeDetail.description ?? "No description")
+                    Text(repositoryDetails.description ?? "No description")
                         .font(.body.italic())
                         .foregroundColor(.gray)
-                    Text(readMeDetail.readMe ?? "No ReadMe file")
+                    Text(repositoryDetails.readMe ?? "No ReadMe file")
                 }
             }
             .padding(.horizontal, Layout.horizontalPadding)
@@ -48,30 +49,37 @@ struct RepositoryDetailsView: View {
     
     private var headerView: some View {
         VStack {
-            Text(readMeDetail.name)
-                .font(.headline)
-            Text(readMeDetail.author)
+            HStack{
+                Text(repositoryDetails.name)
+                    .font(.headline)
+                Link(destination: repositoryDetails.url) {
+                    Image(systemName: "link")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                }
+            }
+            
+            Text(repositoryDetails.author)
                 .font(.subheadline)
                 .padding(.bottom, Layout.authorBottomPadding)
             
             HStack {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
-                Text("\(readMeDetail.stars)")
+                Text("\(repositoryDetails.stars)")
                     .font(.caption)
                     .padding(.trailing, Layout.headerNumbersTrailingPadding)
         
                 Image(systemName: "arrow.triangle.branch")
                     .font(.headline)
-                Text("\(readMeDetail.forks)")
+                Text("\(repositoryDetails.forks)")
                     .font(.caption)
                     .padding(.trailing, Layout.headerNumbersTrailingPadding)
                 
                 Image(systemName: "eye.fill")
-                Text("\(readMeDetail.watchers)")
+                Text("\(repositoryDetails.watchers)")
                     .font(.caption)
                     .padding(.trailing, Layout.headerNumbersTrailingPadding)
-                
             }
         }
     }
@@ -79,6 +87,6 @@ struct RepositoryDetailsView: View {
 
 struct RepositoryDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoryDetailsView(readMeDetail: RepositoryDetailsDisplayData(id: 1, author: "@Cami", name: "MyAwesomeRepo", stars: 230, forks: 3, watchers: 82, description: "This is the description of a hardcoded repo", readMe: "Welcome to my repo! Here you can find details about what is does, the content and purpose of it."))
+        RepositoryDetailsView(repositoryDetails: RepositoryDetailsDisplayData(id: 1, author: "@Cami", name: "MyAwesomeRepo", url: URL(string: "https://github.com/camibraghes/SwiftUIProgress")!, stars: 230, forks: 3, watchers: 82, description: "This is the description of a hardcoded repo", readMe: "Welcome to my repo! Here you can find details about what is does, the content and purpose of it."))
     }
 }

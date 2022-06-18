@@ -13,13 +13,14 @@ struct mReadyChallengeApp: App {
         WindowGroup {
             RepositoriesList(
                 repositories: [
-                    RepositoryDisplayData(id: 1, author: "@Cami", name: "Repo1", stars: 23),
+                    RepositoryDisplayData(id: 1, author: "@Camibraghes", name: "camibraghes/SwiftUIProgress", stars: 23),
                     RepositoryDisplayData(id: 2, author: "@Gigi", name: "Repo2", stars: 53),
                     RepositoryDisplayData(id: 3, author: "@Adi", name: "Repo3", stars: 103)
                 ], repositoryDetails: RepositoryDetailsDisplayData(
                     id: 1,
                     author: "@Cami",
                     name: "MyAwesomeRepo",
+                    url: URL(string: "https://github.com/camibraghes/SwiftUIProgress")!,
                     stars: 230,
                     forks: 3,
                     watchers: 82,
