@@ -23,6 +23,10 @@ final class RepositoriesListViewModel: ObservableObject {
     let loader: RepositoriesLoader
     
     @Published var repositories: [RepositoryDisplayData] = []
+
+    private var unsortedRepositories: [RepositoryDisplayData] = []
+    private var totalRepos = 0
+    private var downloadedRepos = 0
     
     init(loader: RepositoriesLoader) {
         self.loader = loader
@@ -34,6 +38,8 @@ final class RepositoriesListViewModel: ObservableObject {
         loader.getRepositories(completion: { [weak self] repositoriesResult in
             switch repositoriesResult {
             case .success(let repositories):
+                self?.totalRepos = repositories.count
+    
                 for repository in repositories {
                     self?.getRepoDetails(for: repository)
                 }
@@ -45,9 +51,11 @@ final class RepositoriesListViewModel: ObservableObject {
     
     private func getRepoDetails(for repo: Repository) {
         loader.getRepositoryDetails(from: repo.url) { [weak self] repositoryResult in
+            self?.downloadedRepos += 1
+            
             switch repositoryResult {
             case .success(let repositoryDetails):
-                self?.repositories.append(RepositoryDisplayData(
+                self?.unsortedRepositories.append(RepositoryDisplayData(
                     id: repositoryDetails.id,
                     author: repositoryDetails.owner.login,
                     name: repositoryDetails.name,
@@ -61,6 +69,16 @@ final class RepositoriesListViewModel: ObservableObject {
             case .failure:
                 break
             }
+            
+            if self?.downloadedRepos == self?.totalRepos {
+                self?.updateViewWithSortedRepos()
+            }
         }
+    }
+    
+    private func updateViewWithSortedRepos() {
+        repositories = unsortedRepositories.sorted(by: { repo1, repo2 in
+            repo1.stars > repo2.stars
+        })
     }
 }
