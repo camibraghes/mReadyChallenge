@@ -11,7 +11,7 @@ import SwiftUI
 struct mReadyChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RepositoriesList()
         }
     }
 }
