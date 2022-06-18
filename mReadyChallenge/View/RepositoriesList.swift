@@ -16,19 +16,23 @@ struct RepositoriesList: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.repositories) { repository in
-                    NavigationLink {
-                        RepositoryDetailsView(viewModel: RepositoryDetailsViewModel(loader: viewModel.loader, repositoryData: repository))
-                    } label: {
-                        RepositoryView(repository: repository)
+            if viewModel.repositories.isEmpty {
+                ProgressView()
+            } else {
+                List {
+                    ForEach(viewModel.repositories) { repository in
+                        NavigationLink {
+                            RepositoryDetailsView(viewModel: RepositoryDetailsViewModel(loader: viewModel.loader, repositoryData: repository))
+                        } label: {
+                            RepositoryView(repository: repository)
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
+                .padding(.vertical, Layout.verticalPadding)
+                .navigationTitle("Repositories")
+                .navigationBarTitleDisplayMode(.large)
             }
-            .listStyle(PlainListStyle())
-            .padding(.vertical, Layout.verticalPadding)
-            .navigationTitle("Repositories")
-            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
