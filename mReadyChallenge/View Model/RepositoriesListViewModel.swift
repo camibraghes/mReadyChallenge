@@ -25,6 +25,40 @@ final class RepositoriesListViewModel: ObservableObject {
     
     init(loader: RepositoriesLoader) {
         self.loader = loader
-        repositories = []
+        
+        getRepos()
+    }
+    
+    private func getRepos() {
+        loader.getRepositories(completion: { [weak self] repositoriesResult in
+            switch repositoriesResult {
+            case .success(let repositories):
+                for repository in repositories {
+                    self?.getRepoDetails(for: repository)
+                }
+            case .failure:
+                break
+            }
+        })
+    }
+    
+    private func getRepoDetails(for repo: Repository) {
+        loader.getRepositoryDetails(from: repo.url) { [weak self] repositoryResult in
+            switch repositoryResult {
+            case .success(let repositoryDetails):
+                self?.repositories.append(RepositoryDisplayData(
+                    id: repositoryDetails.id,
+                    author: repositoryDetails.owner.login,
+                    name: repositoryDetails.name,
+                    url: URL(string: repositoryDetails.htmlUrl)!,
+                    stars: repositoryDetails.stargazersCount,
+                    forks: repositoryDetails.forks,
+                    watchers: repositoryDetails.watchers,
+                    description: repositoryDetails.description
+                ))
+            case .failure:
+                break
+            }
+        }
     }
 }
