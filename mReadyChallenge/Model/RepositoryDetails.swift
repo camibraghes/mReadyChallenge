@@ -11,6 +11,7 @@ struct RepositoryDetails: Decodable {
     let id: Int
     let name: String
     let fullName: String
+    let htmlUrl: String
     let description: String?
     let forks: Int
     let watchers: Int
