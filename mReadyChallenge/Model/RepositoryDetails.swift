@@ -10,8 +10,10 @@ import Foundation
 struct RepositoryDetails: Decodable {
     let id: Int
     let name: String
+    let fullName: String
     let description: String?
     let forks: Int
     let watchers: Int
     let stargazersCount: Int
+    let owner: GitHubUser
 }
