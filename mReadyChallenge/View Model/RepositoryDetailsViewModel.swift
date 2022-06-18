@@ -7,10 +7,10 @@
 
 import Foundation
 
-class RepositoryDetailsViewModel {
+final class RepositoryDetailsViewModel: ObservableObject  {
     
+    @Published var readMeContent: String?
     var repositoryData: RepositoryDisplayData
-    var readMeContent: String?
     
     init(repositoryData: RepositoryDisplayData) {
         self.repositoryData = repositoryData

@@ -16,7 +16,7 @@ struct RepositoryDetailsView: View {
         static let scrollItemsSpacing = 32.0
     }
     
-    var viewModel: RepositoryDetailsViewModel
+    @ObservedObject var viewModel: RepositoryDetailsViewModel
     
     var body: some View {
         VStack {
