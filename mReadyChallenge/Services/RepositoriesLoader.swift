@@ -68,7 +68,10 @@ final class RepositoriesLoader {
         var request = URLRequest(url: url)
         // Header is required per GitHub documentation
         request.addValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
-        request.addValue("token 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", forHTTPHeaderField: "Authorization")
+        // In order to be able to make more than 60 requests per hour,
+        // an access token in required in the request's header,
+        // but a plain key should never be added in the code.
+//        request.addValue("token YOUR_ACCESS_TOKEN", forHTTPHeaderField: "Authorization")
         return request
     }
 }
